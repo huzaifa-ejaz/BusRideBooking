@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expresso|My Details</title>
+        <link rel="stylesheet" type="text/css" href="styles/navbar-styles.css">
+        <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
+        <link rel="stylesheet" type="text/css" href="styles/forms-styles.css">
+
+    </head>
+    <body>
+            <ul>
+                    <li ><a href="home.html">Home</a></li>
+                    <li class="dropdown" class="active">
+                            <a href="javascript:void(0)" class="dropbtn">Booking</a>
+                            <div class="dropdown-content">
+                              <a href="book-ride-start-end.html">Book A New Ride</a>
+                              <a href="booked-customer-info.html">I've Alredy Booked</a>
+                            </div>
+                          </li>
+                    <li><a href="help.html">Help</a></li>
+                        
+                </ul>
+        <form>
+             <p>Email:
+                        <input type="text" name:"cemail" size="20" maxlength="35"/>
+                    </p>
+            <p>Name:
+                <input type="text" name:"cname" size="20" maxlength="35"/>
+            </p>
+            <p>Phone:
+                    <input type="text" name:"phone" size="20" maxlength="35"/>
+                </p>
+            <p>Number of Seats:</p>
+            <select name="cseats" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </form>
+        <a href="book-email-sent.html"><button>Confirm Booking</button></a>
+    </body>
+</html>

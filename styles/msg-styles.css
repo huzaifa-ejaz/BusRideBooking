@@ -1,0 +1,19 @@
+.msg {
+    background-color: #6ff03c;
+    height: 400px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.msg-img {
+    margin : 0 auto;
+    height: 100px;
+    width: 100px;
+}
+
+.book-btn {
+    background-color: gold;
+    border-radius: 30px ;
+    height: 40px;
+    width: 200px;
+}
