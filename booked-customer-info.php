@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,15 +59,30 @@
 	  <br>
 	  <div class="w3-panel w3-border w3-round-xxlarge">
         
-            <form>
-                <p>My Booking ID:<br>
-                    <input class="input" type="text" name="cbid" size="4" maxlength="4">
-                </p>
-                <p>My Email:<br>
-                        <input class="input" type="text" name="cid" size="20" maxlength="30">
-                </p>
+             <form   method="post">
+                My Booking ID:
+                    <input type="text" name="bk_id" size="10" maxlength="10">
+                
+                My Email:
+                        <input type="text" name="email" size="30" maxlength="50">
+                <a href='booked-customer-ride.php'><input type="submit" name="checkmyride" value="Check Out My Ride"></a>
+                
             </form>
-            <a href="booked-customer-ride.html"><button class="button">Check Out My Ride</button></a>
+             <?php
+                if(isset($_POST["checkmyride"])) {
+                    
+                    
+
+                     $bk_id = $_POST["bk_id"];
+                     $email = $_POST["email"];
+                     $_SESSION["bk_id"] = $bk_id;
+                     $_SESSION["email"] = $email;
+
+                     header("location:booked-customer-ride.php");
+
+                  
+                }
+            ?>
         </div>
     </body>
 </html>
