@@ -82,3 +82,7 @@
 #booked-ride {
     background: rgb(84, 228, 84);
 }
+
+.status {
+    color: black;
+}
