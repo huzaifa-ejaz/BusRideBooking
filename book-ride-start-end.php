@@ -1,3 +1,11 @@
+<?php
+    require 'dbconfig.php';
+?>
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,23 +60,48 @@
 	  <br>
 	  <br>
 	  <div class="w3-panel w3-border w3-round-xxlarge">
-        <form>
-            <p>Where you want to go?</p>
-            <select name="destination">
-                <option value="karachi">Karachi</option>
-                <option value="hyderabad">Hyderabad</option>
-                <option value="Sukkur">Sukkur</option>
-            </select>
-            <p>Where you are right now?</p>
-            <select name="origin">
-                <option value="karachi">Lahore</option>
-                <option value="hyderabad">Faisalabad</option>
-                <option value="Sukkur">Multan</option>
-            </select>
-             <br> 
-        </form>
+        <form method="post">
+                    <p>From: </p>
+                    <select name="ogn">
+                    <?php
+                        $sql="select distinct origin from Route";
+                        $result = mysqli_query($con,$sql);
+                        if(mysqli_num_rows($result)>0) {
+                             while($row = mysqli_fetch_array($result)) {
+                                 echo "<option value=$row[origin]>$row[origin]</option>";
+                              }
+                            }else {
+                            echo "<option>No origins</option>";
+                        }
+                    ?>
+                    </select>
+                    <p>To: </p>
+                    <select name="dstn">
+                    <?php
+                        $sql="select distinct destination from Route";
+                        $result = mysqli_query($con,$sql);
+                        if(mysqli_num_rows($result)>0) {
+                             while($row = mysqli_fetch_array($result)) {
+                                 echo "<option value=$row[destination]>$row[destination]</option>";
+                              }
+                            }else {
+                            echo "<option>No destinations</option>";
+                        }
+                    ?>
+                    <br>
+                    <input type="submit" value="Find Rides" name="findRides">
+                </form>
 		
-        <a href="show-rides.html"><button class="button">Find a Ride</button></a>
+              <?php
+                   if (isset($_POST["findRides"])) {
+                       $ogn = $_POST["ogn"];
+                       $dstn = $_POST["dstn"];
+                       $_SESSION["ogn"] = $ogn;
+                       $_SESSION["dstn"] = $dstn;
+                      
+                       header("location:show-rides.php");
+                    }
+                ?>
 		</div>
     </body>
 </html>
