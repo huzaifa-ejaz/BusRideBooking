@@ -60,27 +60,57 @@ select {
 	  <br>
 	  <br>
 	  <div class="w3-panel w3-border w3-round-xxlarge">
-        <form>
-             <p>Email:<br>
-                        <input class= "input" type="text" name:"cemail" size="20" maxlength="35"/>
-                    </p>
-            <p>Name:<br>
-                <input class= "input" type="text" name:"cname" size="20" maxlength="35"/>
-            </p>
-            <p>Phone:<br>
-                    <input class= "input" type="text" name:"phone" size="20" maxlength="35"/>
-                </p>
-            <p>Number of Seats:<br></p>
-            <select name="cseats" >
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
+        <form method="post">
+            Email:
+                <input type="email" name="cemail" size="20" maxlength="35" />
+                  
+            Name:
+                <input type="text" name="cname" size="30" maxlength="35"/>
+           
+            Mobile:
+                <input type="text" name="mobile" size="30" maxlength="35"/>
+             
+            Number of Seats: 1
+        <input type="submit" name="bookride" value="Book Now"/>   
         </form>
-        <a href="book-email-sent.html"><button class= "button">Confirm Booking</button></a>
+         <?php
+            
+            if(isset($_REQUEST["bookride"])) {
+                 $email = $_POST["cemail"];
+                 $name = $_POST["cname"];
+                 $mobile = $_POST["mobile"];
+                 
+                 $query = "insert into customer(email,name,mobile) values('$email','$name','$mobile')";
+                 $result = mysqli_query($con,$query);
+                if(!$result) {
+                    exit("Query could not be executed") ;
+                }
+
+                $result = mysqli_query($con,"select cr_id from customer where email='$email'");
+                $row = mysqli_fetch_assoc($result);
+                $cr_id = $row['cr_id'];
+                
+
+                $ride_id = $_SESSION["ride_id"];
+                
+                
+                $query_booking = "insert into booking(cr_id,ride_id,status) values ('$cr_id','$ride_id','booked')";
+                $result = mysqli_query($con,$query_booking);
+                if(!$result) {
+                    exit("Query could not be executed") ;
+                }
+
+                $result = mysqli_query($con,"select bk_id from booking where cr_id='$cr_id' and ride_id='$ride_id' ");
+                $row = mysqli_fetch_assoc($result);
+                $bk_id = $row['bk_id'];
+                $_SESSION["bk_id"] = $bk_id;
+                
+            }
+             
+               
+                    
+                   
+        ?>
 		</div>
     </body>
 </html>
