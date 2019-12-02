@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 33ff0abf0d15a060bfa2f0177793f1666f20666d
 <?php
 // Start the session
 session_start();
@@ -13,7 +9,7 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Expresso|Check Out My Ride</title>
+        <title>Bussed|Check Out My Ride</title>
         <link rel="stylesheet" type="text/css" href="styles/navbar-styles.css">
         <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
         <link rel="stylesheet" type="text/css" href="styles/show-rides-styles.css">
@@ -25,8 +21,8 @@ session_start();
                     <li class="dropdown" class="active">
                             <a href="javascript:void(0)" class="dropbtn">Booking</a>
                             <div class="dropdown-content">
-                              <a href="book-ride-start-end.html">Book A New Ride</a>
-                              <a href="booked-customer-info.html">I've Alredy Booked</a>
+                              <a href="book-ride-start-end.php">Book A New Ride</a>
+                              <a href="booked-customer-info.php">I've Alredy Booked</a>
                             </div>
                           </li>
                     <li><a href="help.html">Help</a></li>
@@ -47,7 +43,10 @@ session_start();
                 }
                 $row = mysqli_fetch_assoc($result);
                 $cr_id_from_email = $row['cr_id'];
-
+                if( $cr_id_from_email === '') {
+                    $cr_id_from_email = 0;
+                }
+                 
                 
                 
 
@@ -62,7 +61,7 @@ session_start();
                 
                 
 
-                if($cr_id_from_email = $cr_id_from_booking) {
+                if($cr_id_from_email === $cr_id_from_booking) {
                        $get_ride_id = "select ride_id from booking where bk_id='$bk_id'";
                        $result = mysqli_query($con,$get_ride_id);
                        if(!$result) {
@@ -101,7 +100,7 @@ session_start();
                               
                                
                                echo '
-                               <form method="post">
+                               <form method="post" class="ride-detail" id="booked-ride">
                                <button onclick="return confirm(\'Are you sure you want to cancel this booking?\');" type="submit" name="cancelbooking" value="Cancel">Cancel Booking</button>
                                <button onclick="return confirm(\'Are you sure you want to confirm this booking?\');" type="submit" name="confirmbooking" value="Confirm">Confirm Booking</button>
                                </form>
@@ -130,7 +129,7 @@ session_start();
                             
                 }else {
                   echo ' 
-                      <div>
+                      <div class="ride-detail" id="booked-ride">
                       <p>We could not find your booking!</p>
                       <a href="booked-customer-info.php"><button type="button">Check Again</button></a>
                       <a href="book-ride-start-end.php"><button type="button">Book A New Ride</button></a>

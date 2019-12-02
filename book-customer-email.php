@@ -43,8 +43,8 @@ session_start();
                     <li class="dropdown">
                             <a href="javascript:void(0)" class="dropbtn">Booking</a>
                             <div class="dropdown-content">
-                              <a href="book-ride-start-end.html">Book A New Ride</a>
-                              <a href="booked-customer-info.html">I've Already Booked</a>
+                              <a href="book-ride-start-end.php">Book A New Ride</a>
+                              <a href="booked-customer-info.php">I've Already Booked</a>
                             </div>
                           </li>
                     <li><a href="help.html">Help</a></li>
