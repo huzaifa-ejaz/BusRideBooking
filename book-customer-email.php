@@ -7,15 +7,36 @@
 session_start();
 ?>
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title>Expresso|Book My Ride</title>
+        <title>Bussed|Book My Ride</title>
         <link rel="stylesheet" type="text/css" href="styles/navbar-styles.css">
         <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
         <link rel="stylesheet" type="text/css" href="styles/forms-styles.css">
 
     </head>
+	<style>
+		.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: green;
+}
+	.input[type=text]{
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+   box-sizing: border-box;
+}</style>
     <body>
             <ul>
                     <li ><a href="home.html">Home</a></li>
@@ -23,12 +44,21 @@ session_start();
                             <a href="javascript:void(0)" class="dropbtn">Booking</a>
                             <div class="dropdown-content">
                               <a href="book-ride-start-end.html">Book A New Ride</a>
-                              <a href="booked-customer-info.html">I've Alredy Booked</a>
+                              <a href="booked-customer-info.html">I've Already Booked</a>
                             </div>
                           </li>
                     <li><a href="help.html">Help</a></li>
                         
                 </ul>
+							<br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <div class="w3-panel w3-border w3-round-xxlarge">
         <form method="post">
            Email:
              <input type="email" name="cemail" size="30" maxlength="35"/>
@@ -122,6 +152,6 @@ session_start();
 
                     
                 ?>
-        
+		</div>
     </body>
 </html>

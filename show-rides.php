@@ -6,11 +6,11 @@
 session_start();
 ?>
 
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Expresso|Rides</title>
+        <title>Bussed|Rides</title>
         <link rel="stylesheet" type="text/css" href="styles/navbar-styles.css">
         <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
         <link rel="stylesheet" type="text/css" href="styles/show-rides-styles.css">

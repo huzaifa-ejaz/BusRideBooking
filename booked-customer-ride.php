@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 33ff0abf0d15a060bfa2f0177793f1666f20666d
 <?php
 // Start the session
 session_start();

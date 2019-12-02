@@ -7,15 +7,36 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-
-
 <html>
     <head>
-        <title>Expresso|Book A New Ride</title>
+        <title>Bussed|Book A New Ride</title>
         <link rel="stylesheet" type="text/css" href="styles/navbar-styles.css">
         <link rel="stylesheet" type="text/css" href="styles/footer-style.css">
         <link rel="stylesheet" type="text/css" href="styles/forms-styles.css">
     </head>
+	<style>
+	select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: green;
+}
+	</style>
     <body>
             <ul>
                     <li ><a href="home.html">Home</a></li>
@@ -29,8 +50,17 @@ session_start();
                     <li><a href="help.html">Help</a></li>
                         
                 </ul>
+                <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <div class="w3-panel w3-border w3-round-xxlarge">
                 <form method="post">
-                    <p>To: </p>
+                    <p>From: </p>
                     <select name="ogn">
                     <?php
                         $sql="select distinct origin from Route";
@@ -44,7 +74,7 @@ session_start();
                         }
                     ?>
                     </select>
-                    <p>From: </p>
+                    <p>To: </p>
                     <select name="dstn">
                     <?php
                         $sql="select distinct destination from Route";
@@ -70,7 +100,6 @@ session_start();
                        header("location:show-rides.php");
                     }
                 ?>
-                
-
+		</div>
     </body>
 </html>

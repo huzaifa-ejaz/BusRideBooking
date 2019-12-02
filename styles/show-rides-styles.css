@@ -10,12 +10,12 @@
     margin-right:auto;
     margin-bottom: 10px;
     margin-left:auto;
-    background: #f54b38;
+    background: #f0a30a;
     color: white;
 }
 
 .book-btn {
-    background-color: gold;
+    background-color:#00cc00;
     border-radius: 30px ;
     position: absolute;
     top: 95px;
