@@ -63,6 +63,12 @@ session_start();
                                   if(!$result) {
                                      exit("Query could not be executed") ;
                                    }
+
+                                   $seats_update = "update ride set seats_left = seats_left -1 where ride_id = '$ride_id'";
+                                   $result_update = mysqli_query($con,$seats_update);
+                                  if(!$result_update) {
+                                     exit("Query could not be executed") ;
+                                   }
         
                                    $result = mysqli_query($con,"select bk_id from booking where cr_id='$cr_id' and ride_id='$ride_id' ");
                                    $row = mysqli_fetch_assoc($result);
@@ -84,6 +90,12 @@ session_start();
                                                 if(!$result) {
                                                        exit("Query could not be executed") ;
                                                  }
+
+                                                 $seats_update = "update ride set seats_left = seats_left -1 where ride_id = '$ride_id'";
+                                                 $result_update = mysqli_query($con,$seats_update);
+                                                if(!$result_update) {
+                                                    exit("Query could not be executed") ;
+                                                }
         
                                                $result = mysqli_query($con,"select bk_id from booking where cr_id='$cr_id' and ride_id='$ride_id' ");
                                                $row = mysqli_fetch_assoc($result);
